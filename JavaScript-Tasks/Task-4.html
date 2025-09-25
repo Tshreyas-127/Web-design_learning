@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task-4</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .tables {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            padding: 40px;
+            text-align: center;
+            width: 400px;
+            transition: 0.3s;
+        }
+
+        .tables:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        td {
+            border: 2px solid #333;
+            padding: 25px;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        td:hover {
+            background: #f0f0f0;
+            transform: scale(1.05);
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        input[type="text"], input[type="color"] {
+            width: 80%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border: 2px solid #666;
+            font-size: 16px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        input[type="text"]:focus, input[type="color"]:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 8px rgba(0,123,255,0.5);
+        }
+
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            width: 85%;
+            padding: 12px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #0056b3;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="tables">
+        <form action="">
+        <table class="tab" border="5px">
+            <tr>
+                <td id="1">1</td>
+                <td id="2">2</td>
+                <td id="3">3</td>
+            </tr>
+            <tr>
+                <td id="4">4</td>
+                <td id="5">5</td>
+                <td id="6">6</td>
+
+            </tr>
+            <tr>
+                <td id="7">7</td>
+                <td id="8">8</td>
+                <td id="9">9</td>
+        </table>
+        <br><br>
+        <label for="cell"> Enter Cell Number</label>
+        <input type="text"  id="cell">
+        <br><br>
+        <label for="color">Select Colour: </label>
+        <input id="col" type="color">
+
+        <br><br>
+        <button type="button" onclick="changeCol()">Change Background colour</button>
+    
+    </form>
+</div>
+    <script>
+        function changeCol(){
+            let n=document.getElementById("cell").value;
+            let c=document.getElementById("col").value;
+            // n=parseInt(n);
+            if(n>9 || n<1){
+                alert("Please enter valid cell number");
+                return;
+            }else{
+            document.getElementById(n).style.backgroundColor=c;
+        }
+    }
+
+    </script>
+
+</body>
+</html>

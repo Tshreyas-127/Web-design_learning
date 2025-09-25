@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task-1</title>
+    <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ffecd2, #fcb69f);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .myForm {
+      background: #fff;
+      border: 3px solid #e90404;
+      border-radius: 12px;
+      width: 350px;
+      padding: 30px;
+      box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
+
+    .myForm h3 {
+      margin: 15px 0;
+      color: #333;
+    }
+
+    input {
+      width: 90%;
+      height: 40px;
+      margin: 12px 0;
+      padding: 10px;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: border 0.3s ease;
+    }
+
+    input:focus {
+      border: 2px solid #e90404;
+      outline: none;
+    }
+
+    button {
+      width: 45%;
+      height: 40px;
+      margin: 8px;
+      padding: 8px;
+      font-size: 15px;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background: #e90404;
+      color: white;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    button:hover {
+      background: #b80303;
+      transform: scale(1.05);
+    }
+
+    #d4 {
+      font-size: 20px;
+      font-weight: bold;
+      color: #e90404;
+    }
+  </style>
+</head>
+<body>
+
+    <form class="myForm">
+        <input type="text" name="num1" id="num1" placeholder="Enter first number">
+        <input type="text" name="num2" id="num2" placeholder="Enter second number">
+        <h3>Result: </h3>
+        <h3 id="d4"></h2>
+        <br><br>
+        <button type="button" onclick="add()">Add</button>
+        <button type="button" onclick="sub()">Sub</button>
+        <button type="button" onclick="Mul()">Multiply</button>
+        <button type="button" onclick="Div()">Divide</button>
+    </form>
+
+    <script>
+        function add(){
+            var n1 = parseInt(document.getElementById("num1").value);
+            var n2 = parseInt(document.getElementById("num2").value);
+            document.getElementById("d4").innerHTML=(parseInt(n1)+parseInt(n2)); 
+           
+        }
+        function sub(){
+            var n1 = parseInt(document.getElementById("num1").value);
+            var n2 = parseInt(document.getElementById("num2").value);
+            document.getElementById("d4").innerHTML=(parseInt(n1)-parseInt(n2)); 
+           
+        }
+        function Mul(){
+            var n1 = parseInt(document.getElementById("num1").value);
+            var n2 = parseInt(document.getElementById("num2").value);
+            document.getElementById("d4").innerHTML=(parseInt(n1)*parseInt(n2)); 
+           
+        }
+        function Div(){
+            var n1 = parseInt(document.getElementById("num1").value);
+            var n2 = parseInt(document.getElementById("num2").value);
+            document.getElementById("d4").innerHTML=(parseInt(n1)/parseInt(n2)); 
+        }
+    </script>
+</body>
+</html>

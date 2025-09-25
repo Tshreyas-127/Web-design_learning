@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task-3a</title>
+
+     <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f7fc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      text-align: center;
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+    }
+
+
+    img {
+      border-radius: 8px;
+      border: 2px solid #555;
+    }
+
+    h3 {
+      margin: 15px 0;
+      color: #444;
+      text-transform: capitalize;
+    }
+
+    button {
+      margin: 5px;
+      padding: 10px 15px;
+      font-size: 14px;
+      font-weight: bold;
+      color: #fff;
+      background-color: #007BFF;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+    
+    <div class="container mt-3">
+        <img id="1" src="../images/vadapav.jpg" alt="" width="300px" height="300px">
+
+        <br>
+        <h3 id="2">vadapav</h3>
+        <button type="button" onclick="vadapav()">vadapav</button>
+        <button type="button" onclick="samosapav()">samosapav</button>
+        <button type="button" onclick="bhajipav()">bhajipav</button>
+    </div>
+        
+    <script>
+        function vadapav(){
+            document.getElementById("1").src="../images/vadapav.jpg";
+            document.getElementById("2").innerHTML="vadapav";
+        }
+        function samosapav(){
+            document.getElementById("1").src="../images/samosa pav.jpg";
+            document.getElementById("2").innerHTML="samosa pav";
+            
+        }
+        function bhajipav(){
+            document.getElementById("1").src="../images/bhaji pav.jpg";
+            document.getElementById("2").innerHTML="bhajipav";
+        }
+    </script>
+    
+</body>
+</html>
