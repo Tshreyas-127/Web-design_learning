@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Array of Objects</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 20px;
+    }
+    th, td {
+      border: 1px solid black;
+      padding: 10px;
+      text-align: center;
+    }
+    th {
+      background-color: lightgray;
+    }
+    button {
+      margin: 5px;
+      padding: 8px 15px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h2>Employee Details</h2>
+  <button onclick="displayEmployees('All')">Show All</button>
+  <button onclick="displayEmployees('Female')">Show Female</button>
+  <button onclick="displayEmployeesBySalary()">Salary 30000-70000</button>
+  <button onclick="displayEmployeesByPost()">HR & Manager</button>
+  <button onclick="displayEmployeesByAge()">Age > 55</button>
+  <button onclick="displayEmployeesByBlood()">Blood Group O-</button>
+
+  <table id="employeeTable">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Post</th>
+        <th>Salary</th>
+        <th>Gender</th>
+        <th>Age</th>
+        <th>State</th>
+        <th>Blood Group</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    // Array of employee objects
+    const employees = [
+      { id: 1, name: "Rohit Sharma", post: "Manager", salary: 75000, gender: "Male", age: 35, state: "Maharashtra", bloodGroup: "A+" },
+      { id: 2, name: "Priya Singh", post: "HR", salary: 55000, gender: "Female", age: 29, state: "Delhi", bloodGroup: "B+" },
+      { id: 3, name: "Amit Verma", post: "Software Engineer", salary: 60000, gender: "Male", age: 26, state: "Karnataka", bloodGroup: "O+" },
+      { id: 4, name: "Sneha Iyer", post: "Data Analyst", salary: 58000, gender: "Female", age: 27, state: "Tamil Nadu", bloodGroup: "AB+" },
+      { id: 5, name: "Vikas Gupta", post: "Team Lead", salary: 70000, gender: "Male", age: 32, state: "Uttar Pradesh", bloodGroup: "B-" },
+      { id: 6, name: "Ananya Das", post: "UI/UX Designer", salary: 52000, gender: "Female", age: 25, state: "West Bengal", bloodGroup: "O-" },
+      { id: 7, name: "Rahul Mehta", post: "Tester", salary: 48000, gender: "Male", age: 28, state: "Rajasthan", bloodGroup: "A-" },
+      { id: 8, name: "Meera Nair", post: "Project Manager", salary: 80000, gender: "Female", age: 34, state: "Kerala", bloodGroup: "B+" },
+      { id: 9, name: "Sanjay Kumar", post: "DevOps Engineer", salary: 65000, gender: "Male", age: 30, state: "Bihar", bloodGroup: "O+" },
+      { id: 10, name: "Neha Kapoor", post: "Business Analyst", salary: 56000, gender: "Female", age: 27, state: "Punjab", bloodGroup: "AB-" },
+      { id: 11, name: "Mohan Lal", post: "Manager", salary: 68000, gender: "Male", age: 58, state: "Haryana", bloodGroup: "O-" }
+    ];
+
+    // Common function
+    function renderTable(data) {
+      const tbody = document.querySelector("#employeeTable tbody");
+      tbody.innerHTML = ""; // clear old rows
+
+      if (data.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="8">No records found</td></tr>`;
+        return;
+      }
+
+      data.forEach(emp => {
+        const row = `
+          <tr>
+            <td>${emp.id}</td>
+            <td>${emp.name}</td>
+            <td>${emp.post}</td>
+            <td>${emp.salary}</td>
+            <td>${emp.gender}</td>
+            <td>${emp.age}</td>
+            <td>${emp.state}</td>
+            <td>${emp.bloodGroup}</td>
+          </tr>
+        `;
+        tbody.innerHTML += row;
+      });
+    }
+
+    // Show All / Female
+    function displayEmployees(type) {
+      let filteredData;
+      if (type === "Female") {
+        filteredData = employees.filter(emp => emp.gender === "Female");
+      } else {
+        filteredData = employees;
+      }
+      renderTable(filteredData);
+    }
+
+    // Salary range
+    function displayEmployeesBySalary() {
+      const filteredData = employees.filter(emp => emp.salary >= 30000 && emp.salary <= 70000);
+      renderTable(filteredData);
+    }
+
+    // HR and Manager
+    function displayEmployeesByPost() {
+      const filteredData = employees.filter(emp => emp.post === "HR" || emp.post === "Manager");
+      renderTable(filteredData);
+    }
+
+    // Age > 55
+    function displayEmployeesByAge() {
+      const filteredData = employees.filter(emp => emp.age > 55);
+      renderTable(filteredData);
+    }
+
+    // Blood Group O-
+    function displayEmployeesByBlood() {
+      const filteredData = employees.filter(emp => emp.bloodGroup === "O-");
+      renderTable(filteredData);
+    }
+
+    // Show all employees by default
+    displayEmployees("All");
+  </script>
+</body>
+</html>
